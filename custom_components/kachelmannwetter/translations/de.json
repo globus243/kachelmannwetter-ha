@@ -1,0 +1,318 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Kachelmannwetter API",
+        "description": "Wichtig: Der Standort muss VORHER im Kontoportal freigeschaltet werden — accounts.meteologix.com → Abonnements → „API-Standorte verwalten“ (Private-Plan: max. 2 Standorte). Die Koordinaten hier müssen dann innerhalb von ca. 5 km um den freigeschalteten Punkt liegen, sonst antwortet die API mit 403. Den API-Key gibt es im selben Portal unter „API-Keys verwalten“.",
+        "data": {
+          "api_key": "API-Key",
+          "latitude": "Breitengrad",
+          "longitude": "Längengrad"
+        }
+      },
+      "station": {
+        "title": "Wetterstation",
+        "description": "Optional: Wetterstation für echte Messwerte. Die Stationsdichte ist in Mitteleuropa am höchsten; DWD-Stationen haben die beste Präzision.",
+        "data": {
+          "station_id": "Station"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "API-Key ungültig.",
+      "location_forbidden": "Standort nicht freigeschaltet: Koordinaten liegen außerhalb der registrierten API-Standorte (accounts.meteologix.com → API-Standorte verwalten).",
+      "cannot_connect": "Verbindung zur API fehlgeschlagen."
+    },
+    "abort": {
+      "already_configured": "Dieser Standort ist bereits eingerichtet."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "is_day": {
+        "name": "Tag"
+      }
+    },
+    "sensor": {
+      "temperature": {
+        "name": "Temperatur"
+      },
+      "dew_point": {
+        "name": "Taupunkt"
+      },
+      "humidity": {
+        "name": "Luftfeuchtigkeit"
+      },
+      "pressure_msl": {
+        "name": "Luftdruck"
+      },
+      "wind_speed": {
+        "name": "Windgeschwindigkeit"
+      },
+      "wind_gust": {
+        "name": "Windböen"
+      },
+      "wind_direction": {
+        "name": "Windrichtung"
+      },
+      "cloud_coverage": {
+        "name": "Bewölkung"
+      },
+      "precipitation_1h": {
+        "name": "Niederschlag (1h)"
+      },
+      "sun_hours_1h": {
+        "name": "Sonnenschein (1h)"
+      },
+      "snow_amount": {
+        "name": "Neuschnee (Wasseräquivalent)"
+      },
+      "snow_height": {
+        "name": "Schneehöhe"
+      },
+      "wmo_code": {
+        "name": "WMO-Code"
+      },
+      "weather_symbol": {
+        "name": "Wettersymbol"
+      },
+      "precipitation_current": {
+        "name": "Niederschlag (aktuell)"
+      },
+      "precipitation_6h": {
+        "name": "Niederschlag (6h)"
+      },
+      "precipitation_24h": {
+        "name": "Niederschlag (24h)"
+      },
+      "wind_gust_3h": {
+        "name": "Windböen (3h)"
+      },
+      "risks_today": {
+        "name": "Wetterrisiken heute"
+      },
+      "prec_sum_24h": {
+        "name": "Niederschlag nächste 24h"
+      },
+      "radiation_sum_24h": {
+        "name": "Globalstrahlung nächste 24h"
+      },
+      "gust_max_24h": {
+        "name": "Maximale Böe nächste 24h"
+      },
+      "temp_max_24h": {
+        "name": "Höchsttemperatur nächste 24h"
+      },
+      "temp_min_24h": {
+        "name": "Tiefsttemperatur nächste 24h"
+      },
+      "precip_probability_today": {
+        "name": "Regenwahrscheinlichkeit heute"
+      },
+      "precip_probability_tomorrow": {
+        "name": "Regenwahrscheinlichkeit morgen"
+      },
+      "precip_probability_day_after_tomorrow": {
+        "name": "Regenwahrscheinlichkeit übermorgen"
+      },
+      "temp_max_today": {
+        "name": "Höchsttemperatur heute"
+      },
+      "temp_max_tomorrow": {
+        "name": "Höchsttemperatur morgen"
+      },
+      "temp_min_today": {
+        "name": "Tiefsttemperatur heute"
+      },
+      "temp_min_tomorrow": {
+        "name": "Tiefsttemperatur morgen"
+      },
+      "precipitation_today": {
+        "name": "Niederschlag heute"
+      },
+      "precipitation_tomorrow": {
+        "name": "Niederschlag morgen"
+      },
+      "sun_hours_today": {
+        "name": "Sonnenstunden heute"
+      },
+      "sun_hours_tomorrow": {
+        "name": "Sonnenstunden morgen"
+      },
+      "trend_precip_sum_14d": {
+        "name": "Regensumme 14 Tage"
+      },
+      "trend_heat_days": {
+        "name": "Hitzetage 14 Tage"
+      },
+      "next_sunrise": {
+        "name": "Nächster Sonnenaufgang"
+      },
+      "next_sunset": {
+        "name": "Nächster Sonnenuntergang"
+      },
+      "next_solar_noon": {
+        "name": "Nächster Sonnenhöchststand"
+      },
+      "next_civil_dawn": {
+        "name": "Nächste bürgerliche Morgendämmerung"
+      },
+      "next_civil_dusk": {
+        "name": "Nächste bürgerliche Abenddämmerung"
+      },
+      "next_nautical_dawn": {
+        "name": "Nächste nautische Morgendämmerung"
+      },
+      "next_nautical_dusk": {
+        "name": "Nächste nautische Abenddämmerung"
+      },
+      "next_astronomical_dawn": {
+        "name": "Nächste astronomische Morgendämmerung"
+      },
+      "next_astronomical_dusk": {
+        "name": "Nächste astronomische Abenddämmerung"
+      },
+      "next_moonrise": {
+        "name": "Nächster Mondaufgang"
+      },
+      "next_moonset": {
+        "name": "Nächster Monduntergang"
+      },
+      "next_full_moon": {
+        "name": "Nächster Vollmond"
+      },
+      "next_new_moon": {
+        "name": "Nächster Neumond"
+      },
+      "moon_illumination": {
+        "name": "Mondbeleuchtung"
+      },
+      "moon_phase": {
+        "name": "Mondphase"
+      },
+      "day_length": {
+        "name": "Tageslänge"
+      },
+      "api_requests_remaining": {
+        "name": "API-Requests übrig"
+      },
+      "station_temperature": {
+        "name": "Temperatur"
+      },
+      "station_dew_point": {
+        "name": "Taupunkt"
+      },
+      "station_wet_bulb_temp": {
+        "name": "Feuchtkugeltemperatur"
+      },
+      "station_humidity": {
+        "name": "Luftfeuchtigkeit"
+      },
+      "station_pressure_msl": {
+        "name": "Luftdruck (QFF)"
+      },
+      "station_pressure_qfe": {
+        "name": "Luftdruck Stationshöhe (QFE)"
+      },
+      "station_pressure_change": {
+        "name": "Drucktendenz (3h)"
+      },
+      "station_wind_speed": {
+        "name": "Windgeschwindigkeit"
+      },
+      "station_wind_direction": {
+        "name": "Windrichtung"
+      },
+      "station_wind_gust": {
+        "name": "Windböen"
+      },
+      "station_wind_gust_10m": {
+        "name": "Windböen (10min)"
+      },
+      "station_wind_gust_1h": {
+        "name": "Windböen (1h)"
+      },
+      "station_temp_5cm": {
+        "name": "Temperatur 5cm"
+      },
+      "station_temp_5cm_min": {
+        "name": "Temperatur 5cm Minimum"
+      },
+      "station_temp_min_12h": {
+        "name": "Tiefsttemperatur (12h)"
+      },
+      "station_temp_max_12h": {
+        "name": "Höchsttemperatur (12h)"
+      },
+      "station_temp_min_1h": {
+        "name": "Tiefsttemperatur (1h)"
+      },
+      "station_temp_max_1h": {
+        "name": "Höchsttemperatur (1h)"
+      },
+      "station_snow_height": {
+        "name": "Schneehöhe"
+      },
+      "station_soil_temp_10": {
+        "name": "Bodentemperatur 10cm"
+      },
+      "station_soil_temp_20": {
+        "name": "Bodentemperatur 20cm"
+      },
+      "station_soil_temp_80": {
+        "name": "Bodentemperatur 80cm"
+      },
+      "station_soil_temp_120": {
+        "name": "Bodentemperatur 120cm"
+      },
+      "station_precipitation": {
+        "name": "Niederschlag (Referenzzeitraum)"
+      },
+      "station_precipitation_10m": {
+        "name": "Niederschlag (10min)"
+      },
+      "station_precipitation_1h": {
+        "name": "Niederschlag (1h)"
+      },
+      "station_precipitation_6h": {
+        "name": "Niederschlag (6h)"
+      },
+      "station_precipitation_24h": {
+        "name": "Niederschlag (24h)"
+      },
+      "station_global_radiation_10m": {
+        "name": "Globalstrahlung (10min)"
+      },
+      "station_global_radiation_1h": {
+        "name": "Globalstrahlung (1h)"
+      },
+      "station_global_radiation_24h": {
+        "name": "Globalstrahlung (24h)"
+      },
+      "station_leaf_wet": {
+        "name": "Blattnässe"
+      },
+      "station_soil_humidity_10": {
+        "name": "Bodenfeuchte 10cm"
+      },
+      "station_soil_humidity_20": {
+        "name": "Bodenfeuchte 20cm"
+      },
+      "station_soil_humidity_30": {
+        "name": "Bodenfeuchte 30cm"
+      },
+      "station_soil_humidity_60": {
+        "name": "Bodenfeuchte 60cm"
+      },
+      "station_soil_water_pot_10": {
+        "name": "Bodenwasserpotenzial 10cm"
+      },
+      "station_soil_water_pot_30": {
+        "name": "Bodenwasserpotenzial 30cm"
+      },
+      "station_soil_water_pot_60": {
+        "name": "Bodenwasserpotenzial 60cm"
+      }
+    }
+  }
+}

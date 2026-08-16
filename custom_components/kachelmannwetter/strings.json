@@ -1,0 +1,137 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Kachelmannwetter API",
+        "description": "Important: the location must be registered FIRST in the account portal — accounts.meteologix.com → Subscriptions → “manage API locations” (Private plan: max. 2 locations). The coordinates entered here must then be within approx. 5 km of the registered point, otherwise the API responds with 403. The API key is available in the same portal under “manage API keys”.",
+        "data": {
+          "api_key": "API key",
+          "latitude": "Latitude",
+          "longitude": "Longitude"
+        }
+      },
+      "station": {
+        "title": "Weather station",
+        "description": "Optional: a weather station for real observations. Station density is highest in Central Europe; DWD stations offer the best precision.",
+        "data": {
+          "station_id": "Station"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API key.",
+      "location_forbidden": "Location not enabled: coordinates are outside your registered API locations (accounts.meteologix.com → manage API locations).",
+      "cannot_connect": "Could not connect to the API."
+    },
+    "abort": {
+      "already_configured": "This location is already configured."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "is_day": { "name": "Day" }
+    },
+    "sensor": {
+      "temperature": { "name": "Temperature" },
+      "dew_point": { "name": "Dew point" },
+      "humidity": { "name": "Humidity" },
+      "pressure_msl": { "name": "Pressure" },
+      "wind_speed": { "name": "Wind speed" },
+      "wind_gust": { "name": "Wind gusts" },
+      "wind_direction": { "name": "Wind direction" },
+      "cloud_coverage": { "name": "Cloud coverage" },
+      "precipitation_1h": { "name": "Precipitation (1 h)" },
+      "sun_hours_1h": { "name": "Sunshine (1 h)" },
+      "snow_amount": { "name": "Fresh snow (water equivalent)" },
+      "snow_height": { "name": "Snow depth" },
+      "wmo_code": { "name": "WMO code" },
+      "weather_symbol": { "name": "Weather symbol" },
+      "precipitation_current": { "name": "Precipitation (current)" },
+      "precipitation_6h": { "name": "Precipitation (6 h)" },
+      "precipitation_24h": { "name": "Precipitation (24 h)" },
+      "wind_gust_3h": { "name": "Wind gusts (3 h)" },
+      "risks_today": { "name": "Weather risks today" },
+
+      "prec_sum_24h": { "name": "Precipitation next 24 h" },
+      "radiation_sum_24h": { "name": "Global radiation next 24 h" },
+      "gust_max_24h": { "name": "Maximum gust next 24 h" },
+      "temp_max_24h": { "name": "Maximum temperature next 24 h" },
+      "temp_min_24h": { "name": "Minimum temperature next 24 h" },
+
+      "precip_probability_today": { "name": "Precipitation probability today" },
+      "precip_probability_tomorrow": { "name": "Precipitation probability tomorrow" },
+      "precip_probability_day_after_tomorrow": { "name": "Precipitation probability day after tomorrow" },
+
+      "temp_max_today": { "name": "Maximum temperature today" },
+      "temp_max_tomorrow": { "name": "Maximum temperature tomorrow" },
+      "temp_min_today": { "name": "Minimum temperature today" },
+      "temp_min_tomorrow": { "name": "Minimum temperature tomorrow" },
+      "precipitation_today": { "name": "Precipitation today" },
+      "precipitation_tomorrow": { "name": "Precipitation tomorrow" },
+      "sun_hours_today": { "name": "Sunshine hours today" },
+      "sun_hours_tomorrow": { "name": "Sunshine hours tomorrow" },
+
+      "trend_precip_sum_14d": { "name": "Precipitation total 14 days" },
+      "trend_heat_days": { "name": "Heat days in 14 days" },
+
+      "next_sunrise": { "name": "Next sunrise" },
+      "next_sunset": { "name": "Next sunset" },
+      "next_solar_noon": { "name": "Next solar noon" },
+      "next_civil_dawn": { "name": "Next civil dawn" },
+      "next_civil_dusk": { "name": "Next civil dusk" },
+      "next_nautical_dawn": { "name": "Next nautical dawn" },
+      "next_nautical_dusk": { "name": "Next nautical dusk" },
+      "next_astronomical_dawn": { "name": "Next astronomical dawn" },
+      "next_astronomical_dusk": { "name": "Next astronomical dusk" },
+      "next_moonrise": { "name": "Next moonrise" },
+      "next_moonset": { "name": "Next moonset" },
+      "next_full_moon": { "name": "Next full moon" },
+      "next_new_moon": { "name": "Next new moon" },
+      "moon_illumination": { "name": "Moon illumination" },
+      "moon_phase": { "name": "Moon phase" },
+      "day_length": { "name": "Day length" },
+
+      "api_requests_remaining": { "name": "API requests remaining" },
+
+      "station_temperature": { "name": "Temperature" },
+      "station_dew_point": { "name": "Dew point" },
+      "station_wet_bulb_temp": { "name": "Wet-bulb temperature" },
+      "station_humidity": { "name": "Humidity" },
+      "station_pressure_msl": { "name": "Pressure (QFF)" },
+      "station_pressure_qfe": { "name": "Station pressure (QFE)" },
+      "station_pressure_change": { "name": "Pressure tendency (3 h)" },
+      "station_wind_speed": { "name": "Wind speed" },
+      "station_wind_direction": { "name": "Wind direction" },
+      "station_wind_gust": { "name": "Wind gusts" },
+      "station_wind_gust_10m": { "name": "Wind gusts (10 min)" },
+      "station_wind_gust_1h": { "name": "Wind gusts (1 h)" },
+      "station_temp_5cm": { "name": "Temperature 5 cm" },
+      "station_temp_5cm_min": { "name": "Temperature 5 cm minimum" },
+      "station_temp_min_12h": { "name": "Minimum temperature (12 h)" },
+      "station_temp_max_12h": { "name": "Maximum temperature (12 h)" },
+      "station_temp_min_1h": { "name": "Minimum temperature (1 h)" },
+      "station_temp_max_1h": { "name": "Maximum temperature (1 h)" },
+      "station_snow_height": { "name": "Snow depth" },
+      "station_soil_temp_10": { "name": "Soil temperature 10 cm" },
+      "station_soil_temp_20": { "name": "Soil temperature 20 cm" },
+      "station_soil_temp_80": { "name": "Soil temperature 80 cm" },
+      "station_soil_temp_120": { "name": "Soil temperature 120 cm" },
+      "station_precipitation": { "name": "Precipitation (reference period)" },
+      "station_precipitation_10m": { "name": "Precipitation (10 min)" },
+      "station_precipitation_1h": { "name": "Precipitation (1 h)" },
+      "station_precipitation_6h": { "name": "Precipitation (6 h)" },
+      "station_precipitation_24h": { "name": "Precipitation (24 h)" },
+      "station_global_radiation_10m": { "name": "Global radiation (10 min)" },
+      "station_global_radiation_1h": { "name": "Global radiation (1 h)" },
+      "station_global_radiation_24h": { "name": "Global radiation (24 h)" },
+      "station_leaf_wet": { "name": "Leaf wetness" },
+      "station_soil_humidity_10": { "name": "Soil moisture 10 cm" },
+      "station_soil_humidity_20": { "name": "Soil moisture 20 cm" },
+      "station_soil_humidity_30": { "name": "Soil moisture 30 cm" },
+      "station_soil_humidity_60": { "name": "Soil moisture 60 cm" },
+      "station_soil_water_pot_10": { "name": "Soil water potential 10 cm" },
+      "station_soil_water_pot_30": { "name": "Soil water potential 30 cm" },
+      "station_soil_water_pot_60": { "name": "Soil water potential 60 cm" }
+    }
+  }
+}
